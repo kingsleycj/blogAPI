@@ -27,7 +27,7 @@ connectDB();
 
 // root route
 app.get("/", (req, res) => {
-  res.send("Auth API is running...");
+  res.send("Blog API is running...");
 });
 
 // catch 404 and forward to error handler
