@@ -7,7 +7,7 @@ router.get('/', postController.getAllPosts)
 router.get('/:id', postController.getSinglePost)
 
 router.post('/', protect, postController.createPost)
-router.patch('/', protect, postController.updatePost)
-router.delete('/', protect, postController.deletePost)
+router.patch('/:id', protect, postController.updatePost)
+router.delete('/:id', protect, postController.deletePost)
 
 module.exports = router;
