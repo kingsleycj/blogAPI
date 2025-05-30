@@ -5,7 +5,7 @@ exports.getAllPosts = async (req, res) => {
     res.status(200).json({message: "All Post Fetched Successfully", posts})
 }
 
-exports.getSinglePosts = async (req, res) => {
+exports.getSinglePost = async (req, res) => {
     const post = await Post.findById(req.params.id).populate('author', 'username')
     if (!post) return res.status(404).json({message: 'Post not found'})
         res.status(200).json({message: 'Post fetched successfully', post})
@@ -26,7 +26,7 @@ exports.updatePost = async (req, res) => {
         post.title = req.body.title || post.title;
         post.content = req.body.content || post.content;
         await post.save();
-        res.status(200).post({message: 'Post Updated Successfully', post})
+        res.status(200).json({message: 'Post Updated Successfully', post})
 }
 
 exports.deletePost = async (req, res) => {
